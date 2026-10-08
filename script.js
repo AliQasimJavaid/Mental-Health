@@ -1,8 +1,8 @@
 (() => {
   "use strict";
 
-  const API_BASE = "https://mental-health-0ovy.onrender.com/";
-
+const API_BASE = "https://mental-health-0ovy.onrender.com";
+  
   const form = document.getElementById("predict-form");
   const submitBtn = document.getElementById("submit-btn");
   const resetBtn = document.getElementById("reset-btn");
