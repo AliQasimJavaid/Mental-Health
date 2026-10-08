@@ -43,18 +43,9 @@ class PredictionResponse(BaseModel):
 
 
 
-
 @app.get('/')
-def home():
-    return FileResponse('index.html')
-
-@app.get('/style.css')
-def css():
-    return FileResponse('style.css')
-
-@app.get('/script.js')
-def js():
-    return FileResponse('script.js')
+def greet():
+    return {'Ali Qasim '}
 
 
 @app.post('/predict', response_model=PredictionResponse) #6.77777
