@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from typing import Literal
 from fastapi.middleware.cors import CORSMiddleware
-
+from fastapi.responses import FileResponse
 model = joblib.load('Mental_Health_Model.pkl')
 top_countries = ['Other','India','USA','Canada','Australia','UK','Germany','Mexico','Turkey','France']
 
@@ -45,8 +45,16 @@ class PredictionResponse(BaseModel):
 
 
 @app.get('/')
-def greet():
-    return {'Ali Qasim Javaid'}
+def home():
+    return FileResponse('index.html')
+
+@app.get('/style.css')
+def css():
+    return FileResponse('style.css')
+
+@app.get('/script.js')
+def js():
+    return FileResponse('script.js')
 
 
 @app.post('/predict', response_model=PredictionResponse) #6.77777
